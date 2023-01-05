@@ -15,6 +15,13 @@ describe("NotesModel", () => {
     expect(model.getNotes()).toEqual(["Note 1", "Note 2"]);
   });
 
+  it("sets the list to one provided", () => {
+    const model = new NotesModel();
+    model.setNotes(["Note 1", "Note 2"]);
+    
+    expect(model.getNotes()).toEqual(["Note 1", "Note 2"])
+  });
+
   it("resets to an empty list", () => {
     const model = new NotesModel();
     model.addNote("Note 1");

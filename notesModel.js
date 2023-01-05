@@ -11,6 +11,10 @@ class NotesModel {
     this.list.push(newNote);
   }
 
+  setNotes(notes) {
+    this.list = notes;
+  }
+
   reset() {
     this.list = [];
   }

@@ -1,6 +1,7 @@
 class NotesView {
-  constructor(model) {
+  constructor(model, client) {
     this.model = model;
+    this.client = client;
     this.mainContainerEl = document.querySelector("#main-container");
 
     document.querySelector('#add-note-button').addEventListener('click', () => {
@@ -27,6 +28,13 @@ class NotesView {
       noteEL.textContent = note;
       noteEL.className = "note";
       this.mainContainerEl.append(noteEL);
+    });
+  }
+  
+  displayNotesFromAPI() {
+    this.client.loadNotes((notes) => {
+      this.model.setNotes(notes);
+      this.displayNotes();
     });
   }
 }
